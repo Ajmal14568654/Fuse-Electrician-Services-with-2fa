@@ -1,0 +1,117 @@
+-- 1. Table: adminlogin_tb
+CREATE TABLE `adminlogin_tb` (
+  `a_login_id` int(11) NOT NULL AUTO_INCREMENT,
+  `a_name` varchar(30) NOT NULL,
+  `a_email` varchar(30) NOT NULL,
+  `a_password` varchar(20) NOT NULL,
+  `a_theme` enum('light','dark') DEFAULT 'light',
+  `a_created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `a_otp` varchar(8) DEFAULT NULL,
+  `a_otp_expiry` datetime(6) DEFAULT NULL,
+  `a_verified` tinyint(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`a_login_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 2. Table: assets_tb
+CREATE TABLE `assets_tb` (
+  `pid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `pname` varchar(60) NOT NULL,
+  `pdop` date NOT NULL,
+  `pava` int(11) NOT NULL,
+  `ptotal` int(11) NOT NULL,
+  `poriginalcost` int(11) NOT NULL,
+  `psellingcost` int(11) NOT NULL,
+  PRIMARY KEY (`pid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 3. Table: assignwork_tb
+CREATE TABLE `assignwork_tb` (
+  `rno` int(11) NOT NULL AUTO_INCREMENT,
+  `request_id` int(11) NOT NULL,
+  `request_info` text NOT NULL,
+  `request_desc` text NOT NULL,
+  `requester_name` varchar(60) NOT NULL,
+  `requester_add1` varchar(100) NOT NULL,
+  `requester_add2` varchar(100) NOT NULL,
+  `requester_city` varchar(60) NOT NULL,
+  `requester_state` varchar(60) NOT NULL,
+  `requester_zip` int(11) NOT NULL,
+  `requester_email` varchar(60) NOT NULL,
+  `requester_mobile` bigint(15) NOT NULL,
+  `assign_tech` varchar(60) NOT NULL,
+  `assign_date` date NOT NULL,
+  PRIMARY KEY (`rno`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 4. Table: customer_tb
+CREATE TABLE `customer_tb` (
+  `custid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `custname` varchar(60) NOT NULL,
+  `custadd` varchar(60) NOT NULL,
+  `cpname` varchar(60) NOT NULL,
+  `cpquantity` int(11) NOT NULL,
+  `cpeach` int(11) NOT NULL,
+  `cptotal` int(11) NOT NULL,
+  `cpdate` date NOT NULL,
+  PRIMARY KEY (`custid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 5. Table: requesterlogin_tb
+CREATE TABLE `requesterlogin_tb` (
+  `r_login_id` int(11) NOT NULL AUTO_INCREMENT,
+  `r_name` varchar(60) NOT NULL,
+  `r_email` varchar(60) NOT NULL,
+  `r_phone` bigint(15) NOT NULL,
+  `r_password` varchar(60) NOT NULL,
+  `r_theme` varchar(20) DEFAULT 'light',
+  `r_created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `r_otp` varchar(8) DEFAULT NULL,
+  `r_otp_expiry` datetime(6) DEFAULT NULL,
+  `r_verified` tinyint(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`r_login_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 6. Table: submitrequest_tb (Standard Version)
+CREATE TABLE `submitrequest_tb` (
+  `request_id` int(11) NOT NULL AUTO_INCREMENT,
+  `request_info` varchar(255) NOT NULL,
+  `request_desc` varchar(255) NOT NULL,
+  `requester_name` varchar(20) NOT NULL,
+  `requester_add1` varchar(100) NOT NULL,
+  `requester_add2` varchar(100) NOT NULL,
+  `requester_city` varchar(20) NOT NULL,
+  `requester_state` varchar(20) NOT NULL,
+  `requester_zip` bigint(15) NOT NULL,
+  `requester_email` varchar(40) NOT NULL,
+  `requester_mobile` bigint(15) NOT NULL,
+  `requester_date` varchar(20) NOT NULL,
+  PRIMARY KEY (`request_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 7. Table: submitrequest2_tb (Enhanced Version)
+CREATE TABLE `submitrequest2_tb` (
+  `request_id` int(11) NOT NULL AUTO_INCREMENT,
+  `request_info` varchar(255) NOT NULL,
+  `request_desc` varchar(255) NOT NULL,
+  `requester_name` varchar(20) NOT NULL,
+  `requester_add1` varchar(100) NOT NULL,
+  `requester_add2` varchar(100) NOT NULL,
+  `requester_city` varchar(20) NOT NULL,
+  `requester_state` text NOT NULL,
+  `requester_zip` bigint(15) NOT NULL,
+  `requester_email` varchar(40) NOT NULL,
+  `requester_mobile` bigint(15) NOT NULL,
+  `requester_date` date NOT NULL,
+  `current_email` varchar(40) NOT NULL,
+  PRIMARY KEY (`request_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 8. Table: technician_tb
+CREATE TABLE `technician_tb` (
+  `empid` int(11) NOT NULL AUTO_INCREMENT,
+  `empName` varchar(60) NOT NULL,
+  `empCity` varchar(60) NOT NULL,
+  `empMobile` bigint(15) NOT NULL,
+  `empEmail` varchar(60) NOT NULL,
+  PRIMARY KEY (`empid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;

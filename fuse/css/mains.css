@@ -1,0 +1,223 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    padding-top:90px;
+    font-family:sans-serif;
+}
+
+
+.navbar-brand{
+    font-size:2em;
+    font-weight:bold;
+}
+
+.custom-nav .nav-link{
+    color:white;
+}
+
+.custom-nav .nav-link:hover{
+    color:#e8f4fd;
+}
+
+/*
+.back-image{
+    min-height:90vh;
+    background-size:cover;
+    background-position:center;
+}*/
+
+.mainHeading{
+    margin-top:0px;
+}
+
+.fi-color{
+    color:#2ea3f2;
+}
+
+.fi-color:hover{
+    color:#e8f4fd;
+}
+nav{
+	background-color: #2ea3f2;
+}
+
+.fsbg{
+	background-color:#e8f4fd;
+}
+
+.bgbtn{
+	background-color:#e8f4fd;
+}
+
+/* ================= BANNER ================= */
+.banner {
+  max-width: 100%;
+  width:100%;
+  margin: auto;
+  padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0a1e38 0%, #0d2a4f 100%);
+}
+
+/* ===== DESKTOP SIDE SHAPES ===== */
+.banner::before,
+.banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 460px;
+  height: 100%;
+  background: #f4f1e8;
+}
+
+.banner::before {
+  left: -200px;
+  clip-path: polygon(
+    0 0,
+    83% 0,
+    100% 50%,
+    83% 100%,
+    0 100%,
+    15% 50%
+  );
+}
+
+.banner::after {
+  right: -200px;
+  clip-path: polygon(
+    17% 0,
+    100% 0,
+    100% 100%,
+    17% 100%,
+    0 50%
+  );
+}
+
+/* ================= CONTENT ================= */
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+/* ================= TITLE (PRO SOLUTION) ================= */
+/* Same gradient, positioned per line to force yellow on FUSE */
+.title span {
+  display: block;
+  font-weight: 800;
+  line-height: 1.05;
+
+  background: linear-gradient(
+    90deg,
+    #ffd600 0%,
+    #ffb76b 25%,
+    #ff7f8a 45%,
+    #c06cff 70%,
+    #6b8cff 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+}
+
+/* Force color dominance per line */
+.title .fuse {
+  font-size: 58px;
+  background-position: 0% 50%;
+  letter-spacing: 1px;
+}
+
+.title .electrician {
+  font-size: 48px;
+  background-position: 50% 50%;
+}
+
+.title .services {
+  font-size: 48px;
+  background-position: 100% 50%;
+}
+
+/* Subtle glow like original */
+.title {
+  filter: drop-shadow(0 2px 6px rgba(255, 210, 120, 0.25));
+  margin-bottom: 22px;
+}
+
+/* ================= TAGLINE ================= */
+.tagline {
+  font-size: 18px;
+  color: #3fd6a8;
+  margin-bottom: 36px;
+}
+
+/* ================= 4TH HEADLINE ================= */
+.service-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 22px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(243, 195, 106, 0.35) 0%,
+    rgba(243, 195, 106, 1) 50%,
+    rgba(243, 195, 106, 0.35) 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ================= LIST ================= */
+.service-list {
+  list-style: none;
+}
+
+.service-list li {
+  font-size: 20px;
+  margin: 12px 0;
+  padding-left: 26px;
+  position: relative;
+  color: #ffffff;
+}
+
+.service-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: -2px;
+  font-size: 26px;
+}
+
+/* ================= RESPONSIVE ================= */
+/* Hide shapes on tablet & mobile to prevent collapse */
+@media (max-width: 992px) {
+  .banner::before,
+  .banner::after {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .title .fuse {
+    font-size: 44px;
+  }
+
+  .title .electrician,
+  .title .services {
+    font-size: 36px;
+  }
+
+  .service-title {
+    font-size: 22px;
+  }
+
+  .service-list li {
+    font-size: 18px;
+  }
+}
